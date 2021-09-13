@@ -16,11 +16,16 @@ find_package(QT NAMES Qt6 Qt5 COMPONENTS ${PKGS_TO_FIND})
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS  ${PKGS_TO_FIND})
 
 set(TS_FILES epub_process_zh_CN.ts)
-
 add_executable(epub_process
   main.cpp
   QCodePage437Codec.cpp
   QCodePage437Codec.h
+  epubbook.cpp
+  epubbook.h
+  utility.cpp
+  utility.h
+  mediatypes.cpp
+  mediatypes.h
   ${TS_FILES}
 )
 include_directories( BEFORE
@@ -28,7 +33,9 @@ include_directories( BEFORE
                      ${PCRE_INCLUDE_DIRS}
                      ${MINIZIP_INCLUDE_DIRS}
                      ${ZLIB_INCLUDE_DIRS}
+                     ${PTHON_INCLUDE_DIRS}
                      ${GUMBO_INCLUDE_DIRS}
+                     ${SPDLOG_INCLUDE_DIRS}
                      ${CMAKE_CURRENT_SOURCE_DIR}
                      ${CMAKE_CURRENT_BINARY_DIR} )
 set( LIBS_TO_LINK ${HUNSPELL_LIBRARIES} ${PCRE_LIBRARIES} ${GUMBO_LIBRARIES} ${MINIZIP_LIBRARIES}

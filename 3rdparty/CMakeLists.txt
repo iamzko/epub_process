@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+﻿cmake_minimum_required(VERSION 3.0)
 
 project(3rdparty)
 
@@ -37,6 +37,7 @@ if( NOT USE_SYSTEM_LIBS OR NOT PCRE_FOUND OR APPLE )
 else ()
     MESSAGE(STATUS "Using System PCRE")
 endif()
+    include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/spdlog.cmake)
 
 if (SYSTEM_LIBS_REQUIRED)
     if (NOT ZLIB_FOUND OR NOT MINIZIP_FOUND OR NOT HUNSPELL_FOUND OR (NOT APPLE AND NOT PCRE_FOUND))
